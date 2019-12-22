@@ -138,7 +138,7 @@ def printSudoku(sudoku):
     print(row9[0:3],row9[3:6],row9[6:10])
 
 def sudokuGen():
-    '''Generates a completed sudoku. Sudoku is completly random'''
+    '''Generates a completed sudoku. Sudoku is completely random'''
     cells = [i for i in range(81)] ## our cells is the positions of cells not currently set
     sudoku = emptySudoku()
     while len(cells) != 0:
