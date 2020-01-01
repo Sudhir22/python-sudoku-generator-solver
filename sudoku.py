@@ -69,6 +69,7 @@ class cell():
         self.answer = None
         self.solved = False
 
+
 def emptySudoku():
     ''' Creates an empty sudoku in row major form. Sets up all of the x, y, and z
         coordinates for the sudoku cells'''
