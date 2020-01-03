@@ -3,118 +3,145 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/style.css' %}">
+<script type="text/javascript"> 
+    function onLoadBody(){
+        var t = document.getElementsByTagName('grid');
+        var trs = document.getElementsByTagName('tr');
+        for(var i = 0;i<trs.length;i++)
+        {
+            inputElements = document.getElementsByTagName('td');
+            
+        
+            for(var prop=0;prop<inputElements.length;prop++){
+                if (inputElements[prop].getElementsByTagName('input')[0].value=="0")
+                {
+                    //document.write(inputElements[prop])
+                    
+                    inputElements[prop].getElementByTagName('input')[0].value="";
+                 }
+                else
+                {
+                    alert('hi');
+                    inputElements[prop].getElementsByTagName('input')[0].readOnly=true;
+                }
+            }
+        }   
+    }
+
+ </script>
 </head>
-<body>
+<body onload="onLoadBody();">
 <table id="grid" border="1" style="border-collapse: collapse;">
     <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell1}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell2}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell3}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell4}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell5}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell6}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell7}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell8}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell9}}"></td>
 
         <!--row--></tr>
     <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell10}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell11}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell12}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell13}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell14}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell15}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell16}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell17}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell18}}"></td>
 
-        <!--row--></tr>
-    
-    <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-
-        <!--row--></tr>
-    <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
 
         <!--row--></tr>
     
     <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell19}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell20}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell21}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell22}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell23}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell24}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell25}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell26}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell27}}"></td>
 
         <!--row--></tr>
     <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-
-        <!--row--></tr>
-    <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-
-        <!--row--></tr>
-    <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell28}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell29}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell30}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell31}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell32}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell33}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell34}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell35}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell36}}"></td>
 
         <!--row--></tr>
     
     <tr class="row">
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
-        <td class="cell"><input type="text" maxlength="1"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell37}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell38}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell39}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell40}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell41}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell41}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell43}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell44}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell45}}"></td>
+
+        <!--row--></tr>
+    <tr class="row">
+        <td class="cell"><input type="text" maxlength="1" value="{{cell46}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell47}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell48}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell49}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell50}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell51}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell52}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell53}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell54}}"></td>
+
+        <!--row--></tr>
+    <tr class="row">
+        <td class="cell"><input type="text" maxlength="1" value="{{cell55}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell56}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell57}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell58}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell59}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell60}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell61}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell62}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell63}}"></td>
+
+        <!--row--></tr>
+    <tr class="row">
+        <td class="cell"><input type="text" maxlength="1" value="{{cell64}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell65}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell66}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell67}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell68}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell69}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell70}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell71}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell72}}"></td>
+
+        <!--row--></tr>
+    
+    <tr class="row">
+        <td class="cell"><input type="text" maxlength="1" value="{{cell73}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell74}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell75}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell76}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell77}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell78}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell79}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell80}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell81}}"></td>
     <!--row--></tr>
 </table>
 
