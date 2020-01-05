@@ -4,33 +4,25 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/style.css' %}">
 <script type="text/javascript"> 
-    function onLoadBody(){
-        var t = document.getElementsByTagName('grid');
-        var trs = document.getElementsByTagName('tr');
-        for(var i = 0;i<trs.length;i++)
-        {
-            inputElements = document.getElementsByTagName('td');
-            
-        
-            for(var prop=0;prop<inputElements.length;prop++){
-                if (inputElements[prop].getElementsByTagName('input')[0].value=="0")
+    function GetCellValues() {
+        var table = document.getElementById('grid');
+        for (var r = 0, n = table.rows.length; r < n; r++) {
+            for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
+                if (table.rows[r].cells[c].childNodes[0].value=="0")
                 {
-                    //document.write(inputElements[prop])
-                    
-                    inputElements[prop].getElementByTagName('input')[0].value="";
-                 }
+                    table.rows[r].cells[c].childNodes[0].value ="";
+                }
                 else
                 {
-                    alert('hi');
-                    inputElements[prop].getElementsByTagName('input')[0].readOnly=true;
-                }
-            }
-        }   
+                    table.rows[r].cells[c].childNodes[0].readOnly = true;
+                }                
+            }   
+        }
     }
 
  </script>
 </head>
-<body onload="onLoadBody();">
+<body onload="GetCellValues();">
 <table id="grid" border="1" style="border-collapse: collapse;">
     <tr class="row">
         <td class="cell"><input type="text" maxlength="1" value="{{cell1}}"></td>
