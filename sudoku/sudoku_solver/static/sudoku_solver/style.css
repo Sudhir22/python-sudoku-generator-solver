@@ -21,6 +21,11 @@
     border: 3px solid #000000;
 }
 
+#but{
+    margin-left: 800px;
+ 
+}
+
 .cell input {
     display: inline-block;
     float: left;

@@ -2,9 +2,20 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Context,loader
 import random,copy
+from .models import Results
 # Create your views here.
 
 def index(request):
+    #Sample insert into the database
+    '''
+    result1=Results()
+    result1.age = 20
+    result1.student_name = "Sudhir"
+    result1.task_selected = "Sudoku"
+    result1.task_outcome = "Correct"
+    result1.save()
+    '''
+
     results = run(n=0)       # find puzzles with as few givens as possible.
     puzzle  = best(results)  # use the best one of those puzzles.
     template=loader.get_template("sudoku_solver/index.html")
