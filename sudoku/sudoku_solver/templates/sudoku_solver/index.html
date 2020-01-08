@@ -1,9 +1,9 @@
 <html>
 <head>
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/style.css' %}">
-<script type="text/javascript"> 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
     function GetCellValues() {
         var table = document.getElementById('grid');
         for (var r = 0, n = table.rows.length; r < n; r++) {
@@ -33,10 +33,65 @@
                 solution[r][c] = table.rows[r].cells[c].childNodes[0].value;
         
         
+            }
+        }
+        var resu = checker(solution);
         
+        $.post( "{% url 'end-game' %}",
+        {
+            csrfmiddlewaretoken: '{{ csrf_token}}' ,
+            //solution : solution, //pass the score here
+            resu: resu // pass the win value here
+        },
+        function(data) {
+            if(data.status == 1){
+                // success! Do something
+            }
+            else{
+                // error! Do something
+            }
+        });
+         
+        alert(resu)
+    }    
+    function checker(solution){
+        for (var y = 0; y < 9; ++y) {
+            for (var x = 0; x < 9; ++x) {
+                var value = solution[y][x];
+                //if (value != 1 || value != 3 || value != 3 || value != 4 || value != 5 || value != 6 || value != 7 || value != 8 || value != 9){ return "Fill the grid with numbers"}
+                if (value) {
+                    // Check the line
+                    for (var x2 = 0; x2 < 9; ++x2) {
+                        if (x2 != x && solution[y][x2] == value) {
+                            return false;
+                        } 
+                    }
+
+                    // Check the column
+                    for (var y2 = 0; y2 < 9; ++y2) {
+                        if (y2 != y && solution[y2][x] == value) {
+                            return false;
+                        } 
+                    }
+
+                    // Check the square
+                    var startY = Math.floor(y/3)*3;
+                    for (var y2 = startY; y2 < startY + 3; ++y2) {
+                        var startX = Math.floor(x/3)*3;
+                        for (x2 = startX; x2 < startX + 3; ++x2) {
+                            if ((x2 != x || y2 != y) && solution[y2][x2] == value) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
- </script>
+</script>
 </head>
 <body onload="GetCellValues();">
 <table id="grid" border="1" style="border-collapse: collapse;">

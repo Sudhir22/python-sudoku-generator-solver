@@ -201,7 +201,34 @@ def display(puzzle):
     for row in puzzle:
         print (' '.join([str(n or '_') for n in row]))
 
+def end_game(request):
 
+    # Get the post variables
+    #solution = request.POST['solution']
+    resu = request.POST.get('resu',False)
+    resuk=Results()
+    resuk.age=10
+    resuk.task_outcome=resu
+    resuk.save()
+    # You may want to validate data here
+
+    try:
+
+        # Setting output
+        response = {
+            'status': 1,
+            'message': 'saved'
+        }
+    except Exception as e:
+
+        # Something went wrong
+        response = {
+            'status': 0,
+            'message': 'Something went wrong - ' +str(e) 
+        }
+    return HttpResponse(response,content_type='application/json')
+
+    
 """ Controls starts here """
 #results = run(n=0)       # find puzzles with as few givens as possible.
 #puzzle  = best(results)  # use the best one of those puzzles.
