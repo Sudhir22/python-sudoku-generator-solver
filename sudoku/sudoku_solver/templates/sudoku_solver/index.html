@@ -36,7 +36,7 @@
             }
         }
         var resu = checker(solution);
-        
+        document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
             csrfmiddlewaretoken: '{{ csrf_token}}' ,
@@ -84,6 +84,9 @@
                             }
                         }
                     }
+                }
+                else{
+                    return false;
                 }
             }
         }
@@ -152,7 +155,7 @@
         <td class="cell"><input type="text" maxlength="1" value="{{cell39}}"></td>
         <td class="cell"><input type="text" maxlength="1" value="{{cell40}}"></td>
         <td class="cell"><input type="text" maxlength="1" value="{{cell41}}"></td>
-        <td class="cell"><input type="text" maxlength="1" value="{{cell41}}"></td>
+        <td class="cell"><input type="text" maxlength="1" value="{{cell42}}"></td>
         <td class="cell"><input type="text" maxlength="1" value="{{cell43}}"></td>
         <td class="cell"><input type="text" maxlength="1" value="{{cell44}}"></td>
         <td class="cell"><input type="text" maxlength="1" value="{{cell45}}"></td>

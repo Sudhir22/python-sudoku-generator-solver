@@ -16,7 +16,7 @@ def index(request):
     result1.save()
     '''
 
-    results = run(n=0)       # find puzzles with as few givens as possible.
+    results = run(n=79)       # find puzzles with as few givens as possible.
     puzzle  = best(results)  # use the best one of those puzzles.
     template=loader.get_template("sudoku_solver/index.html")
     context={'cell1':puzzle[0][0],'cell2':puzzle[0][1],'cell3':puzzle[0][2],'cell4':puzzle[0][3],
@@ -177,12 +177,12 @@ This function actually tries making 100 puzzles (by default) and returns
 all of them. The "best" function that follows this one selects the best
 one of those.
 """
-def run(n = 28, iter=10):
+def run(n = 2, iter=10):
     all_results = {}
     print ("Constructing a sudoku puzzle.")
     print ("* creating the solution...")
     a_puzzle_solution = construct_puzzle_solution()
-
+    print(a_puzzle_solution)
     print ("* constructing a puzzle...")
     for i in range(iter):
         puzzle = copy.deepcopy(a_puzzle_solution)
