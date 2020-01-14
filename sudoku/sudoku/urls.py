@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import include,path
 
 urlpatterns = [
-    path('sudoku_solver/',include('sudoku_solver.urls')),
+    path('',include('sudoku_solver.urls')),
     path('admin/', admin.site.urls),
 ]

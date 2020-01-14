@@ -38,6 +38,7 @@
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
+            sendSolution();
             document.getElementById("demo").innerHTML = "EXPIRED";
         }
     }, 1000);
@@ -76,12 +77,20 @@
         var resu = checker(solution);
         var timeEnd = new Date();
         var timeDiff = timeEnd - timeStart;
-        document.write("Submitted");
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var age = url.searchParams.get("Age");
+        var gender = url.searchParams.get("gender");
+        var lass = url.searchParams.get("Class");
+        //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
             csrfmiddlewaretoken: '{{ csrf_token}}' ,
             //solution : solution, //pass the score here
             resu: resu,
+            age :age,
+            gender:gender,
+            lass:lass,
             hours: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))+'m '+Math.floor((timeDiff % (1000 * 60)) / 1000)+'s',
              // pass the win value here
         },

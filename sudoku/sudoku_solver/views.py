@@ -42,6 +42,8 @@ def index(request):
              'cell78':puzzle[8][5],'cell79':puzzle[8][6],'cell80':puzzle[8][7],'cell81':puzzle[8][8]}
     return render(request,"sudoku_solver/index.html",context)
 
+def homepage(request):
+    return render(request,"sudoku_solver/homepage.html")
 
 
 """
@@ -177,7 +179,7 @@ This function actually tries making 100 puzzles (by default) and returns
 all of them. The "best" function that follows this one selects the best
 one of those.
 """
-def run(n = 2, iter=10):
+def run(n = 2, iter=40):
     all_results = {}
     print ("Constructing a sudoku puzzle.")
     print ("* creating the solution...")
@@ -207,8 +209,15 @@ def end_game(request):
     #solution = request.POST['solution']
     resu = request.POST.get('resu',False)
     hours=request.POST.get('hours',False)
+    age=request.POST.get('age',False)
+    gender=request.POST.get('gender',False)
+    lass=request.POST.get('lass',False)
     resuk=Results()
-    resuk.age=hours
+    resuk.task_selected='Sudoku'
+    resuk.time_taken=hours
+    resuk.age=age
+    resuk.gender=gender
+    resuk.standard=lass
     resuk.task_outcome=resu
     resuk.save()
     # You may want to validate data here
