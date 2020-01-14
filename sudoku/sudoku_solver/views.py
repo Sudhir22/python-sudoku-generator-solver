@@ -206,8 +206,9 @@ def end_game(request):
     # Get the post variables
     #solution = request.POST['solution']
     resu = request.POST.get('resu',False)
+    hours=request.POST.get('hours',False)
     resuk=Results()
-    resuk.age=10
+    resuk.age=hours
     resuk.task_outcome=resu
     resuk.save()
     # You may want to validate data here
