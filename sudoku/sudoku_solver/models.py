@@ -12,4 +12,7 @@ class Results(models.Model):
     task_outcome = models.CharField(max_length=20)
     gender = models.CharField(max_length=10,null=True)
     standard = models.CharField(max_length=10,null=True)
+    task1_selection = models.IntegerField(null=True)
+    task2_selection = models.IntegerField(null=True)
+    task2_colour = models.CharField(max_length=10,null=True)
 

@@ -79,9 +79,12 @@
         var timeDiff = timeEnd - timeStart;
         var url_string = window.location.href
         var url = new URL(url_string);
-        var age = url.searchParams.get("Age");
-        var gender = url.searchParams.get("gender");
-        var lass = url.searchParams.get("Class");
+        var age = sessionStorage.getItem("Age");
+        var gender = sessionStorage.getItem("Gender");
+        var lass = sessionStorage.getItem("Class");
+        var task1_selection = sessionStorage.getItem("Task1");
+        var task2_selection = sessionStorage.getItem("Task2");
+        var task2_colour = sessionStorage.getItem("Task2Colour");
         //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
@@ -92,6 +95,9 @@
             gender:gender,
             lass:lass,
             hours: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))+'m '+Math.floor((timeDiff % (1000 * 60)) / 1000)+'s',
+            task1_selection:task1_selection,
+            task2_selection:task2_selection,
+            task2_colour:task2_colour,
              // pass the win value here
         },
         function(data) {

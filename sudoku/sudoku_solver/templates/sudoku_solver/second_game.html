@@ -1,0 +1,187 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/task_style.css' %}">
+    <script type="text/javascript">
+    /*function calculateWinnings()
+    {
+        var selection = document.getElementsByName("switch").value;
+        var dice1 =  Math.floor((Math.random() * 10) + 1); 
+        var dice2 =  Math.floor((Math.random() * 10) + 1); 
+        var optionA1 = 200;
+        var optionA2 = 160;
+        var optionB1 = 385;
+        var optionB2 = 10;
+        var number_of_tokens;
+        if (dice1<selection)
+        {
+            if (dice2<=selection)
+            {
+                number_of_tokens = optionA1;
+            }
+            else
+            {
+                number_of_tokens = optionA2;
+            }
+        }
+        else
+        {
+            if (dice2<=selection)
+            {
+                number_of_tokens = optionB1;
+            }
+            else
+            {
+                number_of_tokens = optionB2;
+            }
+        }
+        return number_of_tokens;
+    }*/
+    function storeValues()
+    {
+    sessionStorage.setItem("Task2",document.getElementsByName("switch")[0].value);
+    sessionStorage.setItem("Task2Colour",document.getElementsByName("colour")[0].value);
+    }
+    
+    </script>
+    </head>
+    <body>
+    <h1 id="but">Task 2</h1>    
+    <form action="/sudoku_solver/">
+    <p>My success colour is <input type="radio" name="colour" value="Red">Red</input>&nbsp;&nbsp;
+        <input type="radio" name="colour" value="Black">Black</input></p>
+    <table id="task1">
+    <tr>
+        <th>No.</th>
+        <th>Urn A <br> 50 Red balls, 50 Black balls</th>
+        <th>Urn B <br> ? Red balls, ? Black balls</th>
+        <th>Switch</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>164 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="1"></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>172 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="2"></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>180 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="3"></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>188 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="4"></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>196 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="5"></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>204 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="6"></td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>212 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="7"></td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>220 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="8"></td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>228 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="9"></td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>236 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>244 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>252 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>260 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>268 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>276 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>284 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>17</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>292 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>18</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>300 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>19</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>308 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td>200 tokens if chosen colour <br> 0 tokens if not</td>
+        <td>316 tokens if chosen colour <br> 0 tokens if not</td>
+        <td><input type="radio" name="switch" value="10"></td>
+    </tr>
+    
+
+    </table>
+    <input type="submit" value="Submit" id="but" onclick="storeValues();">
+    <br><br><br><br><br>
+    <h4 id="but">Instructions</h4>
+    <p>The Decision Sheet contains 18 separate Decisions numbering 1 through 18.  Each of these Decisions is a choice between drawing a ball from “Urn A” or “Urn B”. One of these decisions will be randomly selected, depending on a roll of three dice, to determine your earnings. You will select a color, Red or Black, and this will be your Success Color.  Once a decision is selected, your earnings will be determined by whether the ball drawn from the Urn matches your Success Color. You will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from drawing a ball out of Urn A to drawing out of Urn B. Making a choice to switch means that every decision before your choice, a ball will be drawn from Urn A.  For each decision after your choice, including the decision where the choice was made, a ball will be drawn from Urn B.  For example, if the dice roll outcome is 9, Decision No. 9 will determine payment.  3.If your “Switch” number is higher than 9, a ball will be drawn from Urn A, and if the color of the ball matches the chosen Success Color, then you will 200 tokens.  If it does not match, you will earn 0 tokens. 4.If your “Switch” number is 9 or lower, a ball will be drawn from Urn B, and if the color of the ball matches the chosen Success Color, then you will 228 tokens.  If it does not match, you will earn 0 tokens. Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, a ball will be drawn from Urn A.  If that decision came after or at your choice, a ball will be drawn from Urn B.In each of the 18 decisions, Urn A has 50 Red balls and 50 Black balls, and pays 200 tokens if the ball drawn from Urn A matches your Success Color, and 0 tokens if it does not match.  Since each color has a 1/2 chance of being drawn, this means that drawing from Urn A pays 200 tokens with a chance of 1/2, and pays 0 with a chance of 1/2.  Urn B, on the other hand, has an unknown number of Red and Black balls (with a total of 100 balls).  It pays a positive amount if the ball drawn from Urn B matches your Success Color, and 0 tokens if it does not match. Since the chance of each color being drawn is unknown, the chance of Urn B paying a positive number of tokens is unknown as well.  The only difference between the 18 options is the amount paid when a ball matching your Success Color is drawn from Urn B.</p>
+    </form>
+    </body>

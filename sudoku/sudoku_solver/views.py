@@ -48,6 +48,8 @@ def homepage(request):
 def task(request):
     return render(request,"sudoku_solver/game.html")
 
+def second_task(request):
+    return render(request,"sudoku_solver/second_game.html")
 
 """
 SUDOKU (NUMBER PLACE) PUZZLE GENERATOR
@@ -215,6 +217,9 @@ def end_game(request):
     age=request.POST.get('age',False)
     gender=request.POST.get('gender',False)
     lass=request.POST.get('lass',False)
+    task1_selection=request.POST.get('task1_selection',False)
+    task2_selection=request.POST.get('task2_selection',False)
+    task2_colour=request.POST.get('task2_colour',False)
     resuk=Results()
     resuk.task_selected='Sudoku'
     resuk.time_taken=hours
@@ -222,6 +227,9 @@ def end_game(request):
     resuk.gender=gender
     resuk.standard=lass
     resuk.task_outcome=resu
+    resuk.task1_selection=task1_selection
+    resuk.task2_selection=task2_selection
+    resuk.task2_colour=task2_colour
     resuk.save()
     # You may want to validate data here
 
