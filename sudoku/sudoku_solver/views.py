@@ -45,6 +45,9 @@ def index(request):
 def homepage(request):
     return render(request,"sudoku_solver/homepage.html")
 
+def task(request):
+    return render(request,"sudoku_solver/game.html")
+
 
 """
 SUDOKU (NUMBER PLACE) PUZZLE GENERATOR

@@ -7,5 +7,6 @@ from . import views
 urlpatterns=[
     path('sudoku_solver/',views.index,name='Index'),
     path('homepage/',views.homepage,name='homepage'),
+    path('task/',views.task,name='task'),
     url(r'^end-game/?',views.end_game, name='end-game'),
 ]
