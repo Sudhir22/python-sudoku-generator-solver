@@ -38,7 +38,15 @@
 }*/
 function storeValues()
 {
-    sessionStorage.setItem("Task1",document.getElementsByName("switch")[0].value);
+    var switches = document.getElementsByName("switch");
+    for(var i=0; i<switches.length;i++)
+    {
+        if(switches[i].checked)
+        {
+            sessionStorage.setItem("Task1",switches[i].value);        
+        }
+    }
+    
 }
 
 </script>
