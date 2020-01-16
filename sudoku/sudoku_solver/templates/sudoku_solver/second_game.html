@@ -46,7 +46,15 @@
             sessionStorage.setItem("Task2",switches[i].value);        
         }
     }
-    sessionStorage.setItem("Task2Colour",document.getElementsByName("colour")[0].value);
+
+    var colors = document.getElementsByName("colour");
+    for(var i=0; i<colors.length;i++)
+    {
+        if(colors[i].checked)
+        {
+            sessionStorage.setItem("Task2Colour",colors[i].value);        
+        }
+    }
     }
     
     </script>

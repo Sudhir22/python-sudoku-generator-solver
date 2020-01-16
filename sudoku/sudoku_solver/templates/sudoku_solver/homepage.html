@@ -2,9 +2,19 @@
 <script type="text/javascript">
 function storeValues()
 {
-  sessionStorage.setItem("Gender",document.getElementsByName("gender")[0].value);
+  var gen = document.getElementsByName("gender");
+    for(var i=0; i<gen.length;i++)
+    {
+        if(gen[i].checked)
+        {
+            sessionStorage.setItem("Gender",gen[i].value);        
+        }
+    }
+ // sessionStorage.setItem("Gender",document.getElementsByName("gender")[0].value);
   sessionStorage.setItem("Age",document.getElementsByName("Age")[0].value);
   sessionStorage.setItem("Class",document.getElementsByName("Class")[0].value)
+  sessionStorage.setItem("subjects",document.getElementsByName("subjects")[0].value)
+  sessionStorage.setItem("fav",document.getElementsByName("fav")[0].value)
 
 }
 
@@ -20,7 +30,13 @@ function storeValues()
   <input type="text" name="Age"><br>
   Class:<br>
   <input type="text" name="Class"><br>
-  <input type="submit" value="Submit" onclick="storeValues();">
+  Subjects you study:<br>
+  <input type="text" name="subjects"><br>
+  And your favorite :<br>
+  <input type="text" name="fav"><br>
+
+  <input type="submit" value="Submit" onclick="storeValues();"><br>
+
   </form>
 </body>
  

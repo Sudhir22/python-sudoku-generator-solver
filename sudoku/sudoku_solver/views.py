@@ -217,6 +217,8 @@ def end_game(request):
     age=request.POST.get('age',False)
     gender=request.POST.get('gender',False)
     lass=request.POST.get('lass',False)
+    subjects=request.POST.get('subjects',False)
+    fav=request.POST.get('fav',False)
     task1_selection=request.POST.get('task1_selection',False)
     task2_selection=request.POST.get('task2_selection',False)
     task2_colour=request.POST.get('task2_colour',False)
@@ -226,6 +228,8 @@ def end_game(request):
     resuk.age=age
     resuk.gender=gender
     resuk.standard=lass
+    resuk.subjects=subjects
+    resuk.favorite=fav
     resuk.task_outcome=resu
     resuk.task1_selection=task1_selection
     resuk.task2_selection=task2_selection

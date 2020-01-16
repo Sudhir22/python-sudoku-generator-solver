@@ -13,17 +13,23 @@
 <script>
     // Set the date we're counting down to
     // Update the count down every 1 second
-    var countDownDate = new Date().getTime()+7200500;
+    //var timer = sessionStorage.getItem("Time");
+    
+    //var countDownDate = new Date().getTime()+7200500;
+    
     var timeStart = new Date();
-
+    
+    var distance = sessionStorage.getItem("Time"); 
+    //document.write(distance)
+    if (distance == null){
+        var distance = 7500;
+    }
     var x = setInterval(function() {
-
+        var now = 1000;    
         // Get today's date and time
-        var now = new Date().getTime();
-            
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-        
+       
+        distance = distance - now;
+        sessionStorage.setItem("Time",distance); 
         //document.write(distance)   
         // Time calculations for days, hours, minutes and seconds
         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -34,12 +40,14 @@
         // Output the result in an element with id="demo"
         document.getElementById("demo").innerHTML = hours + "h "
         + minutes + "m " + seconds + "s ";
-            
+           
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
             sendSolution();
             document.getElementById("demo").innerHTML = "EXPIRED";
+            document.getElementById("but").hidden = true;
+            document.write("submitted")
         }
     }, 1000);
     
@@ -85,6 +93,8 @@
         var task1_selection = sessionStorage.getItem("Task1");
         var task2_selection = sessionStorage.getItem("Task2");
         var task2_colour = sessionStorage.getItem("Task2Colour");
+        var subjects = sessionStorage.getItem("subjects");
+        var fav = sessionStorage.getItem("fav");
         //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
@@ -98,6 +108,8 @@
             task1_selection:task1_selection,
             task2_selection:task2_selection,
             task2_colour:task2_colour,
+            fav:fav,
+            subjects:subjects
              // pass the win value here
         },
         function(data) {
@@ -108,7 +120,8 @@
                 // error! Do something
             }
         });
-         
+        
+        window.location.reload(); 
         alert(resu)
     }    
     function checker(solution){
