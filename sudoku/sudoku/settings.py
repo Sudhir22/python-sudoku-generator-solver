@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+#PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = '7p=+s7iu&4**zmsd39__7a*^*y-gbqezj9_qp=@n7z3=41zf=u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,14 +74,14 @@ WSGI_APPLICATION = 'sudoku.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -101,6 +101,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#STATICFILES_DIRS = [
+  #  os.path.join(BASE_DIR, "static"),
+#]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -119,6 +123,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# [START staticurl]
 STATIC_URL = '/static/'
+# [END staticurl]
+#STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'sitestatic')
+STATIC_ROOT = 'static/'
 
-SITE_ID = 1
+# [START dbconfig]
+DATABASES = {
+    'default': {         
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Project_Results',
+        'USER': 'root',
+        'PASSWORD': 'cloudadmin',
+       'PORT': '3306',
+    } 
+}
+
+
+# In the flexible environment, you connect to CloudSQL using a unix socket.
+# Locally, you can use the CloudSQL proxy to proxy a localhost connection
+# to the instance
+DATABASES['default']['HOST'] = '/cloudsql/gender-innovation:australia-southeast1:gender-innovation'
+if os.getenv('GAE_INSTANCE'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '127.0.0.1'
+
+# [END dbconfig]
