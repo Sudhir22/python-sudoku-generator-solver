@@ -1,8 +1,9 @@
-import os
+#import os
 from sudoku.wsgi import application
-import sqlalchemy
+#import sqlalchemy
 app = application
 
+'''
 db_user = os.environ.get("DB_USER")
 db_pass = os.environ.get("DB_PASS")
 db_name = os.environ.get("DB_NAME")
@@ -46,3 +47,4 @@ db = sqlalchemy.create_engine(
     # [END cloud_sql_mysql_sqlalchemy_lifetime]
     # [END_EXCLUDE]
 )
+'''

@@ -127,9 +127,42 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # [END staticurl]
 #STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'sitestatic')
-STATIC_ROOT = 'static/'
+STATIC_ROOT = 'static'
 
 # [START dbconfig]
+#import pymysql  # noqa: 402
+#pymysql.version_info = (1, 4, 1, "final", 0)
+#pymysql.install_as_MySQLdb()
+if os.getenv('GAE_APPLICATION', None):
+    # Running on production App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/gender-innovation:australia-southeast1:gender-innovation',
+            'USER': 'root',
+            'PASSWORD': 'cloudadmin',
+            'NAME': 'Project_Results',
+        }
+    }
+else:
+    # Running locally so connect to either a local MySQL instance or connect to
+    # Cloud SQL via the proxy. To start the proxy via command line:
+    #
+    #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
+    #
+    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'NAME': 'Project_Results',
+            'USER': 'root',
+            'PASSWORD': 'cloudadmin',
+        }
+    }
+'''
 DATABASES = {
     'default': {         
         'ENGINE': 'django.db.backends.mysql',
@@ -149,5 +182,5 @@ if os.getenv('GAE_INSTANCE'):
     pass
 else:
     DATABASES['default']['HOST'] = '127.0.0.1'
-
+'''
 # [END dbconfig]
