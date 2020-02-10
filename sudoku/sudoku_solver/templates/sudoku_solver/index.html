@@ -47,7 +47,7 @@
             sendSolution();
             document.getElementById("demo").innerHTML = "EXPIRED";
             document.getElementById("but").hidden = true;
-            document.write("submitted")
+            document.write("Submitted and Time Over")
         }
     }, 1000);
     
@@ -134,15 +134,81 @@
                 // error! Do something
             }
         });
+    
+        window.location.reload(); 
+        alert(resu)
+    }
+    
+    function qut()
+    {
+        var solution = new Array(9);
+        for(var i = 0;i < 9;i++)
+        {
+            solution[i] = new Array(9);
+        }
+        var table = document.getElementById('grid');
+        for (var r = 0, n = table.rows.length; r < n; r++) {
+            for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
+                solution[r][c] = table.rows[r].cells[c].childNodes[0].value;
         
-        if (document.getElementById('but').clicked==true) {
-            window.location.reload(); 
-            alert(resu)
+        
+            }
         }
-        else if (document.getElementById('qui').clicked==true){
-            window.close();
-        }
-    }  
+        var resu = checker(solution);
+        var timeEnd = new Date();
+        var timeDiff = timeEnd - timeStart;
+        //var url_string = window.location.href
+        //var url = new URL(url_string);
+        var age = sessionStorage.getItem("Age");
+        var gender = sessionStorage.getItem("Gender");
+        var lass = sessionStorage.getItem("Class");
+        var task1_selection = sessionStorage.getItem("Task1");
+        var task2_selection = sessionStorage.getItem("Task2");
+        var task2_colour = sessionStorage.getItem("Task2Colour");
+        var subjects = sessionStorage.getItem("subjects");
+        var fav = sessionStorage.getItem("fav");
+
+        var ID = sessionStorage.getItem("ID");
+        var age2 = sessionStorage.getItem("Age2");
+        var gender2 = sessionStorage.getItem("Gender2");
+        var lass2 = sessionStorage.getItem("Class2");
+        var subjects2 = sessionStorage.getItem("subjects2");
+        var fav2 = sessionStorage.getItem("fav2");
+        //document.write("Submitted");
+        $.post( "{% url 'end-game' %}",
+        {
+            csrfmiddlewaretoken: '{{ csrf_token}}' ,
+            //solution : solution, //pass the score here
+            resu: resu,
+            age :age,
+            gender:gender,
+            lass:lass,
+            hours: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))+'m '+Math.floor((timeDiff % (1000 * 60)) / 1000)+'s',
+            task1_selection:task1_selection,
+            task2_selection:task2_selection,
+            task2_colour:task2_colour,
+            fav:fav,
+            subjects:subjects,
+            task_selected:"Sudoku",
+            ID:ID,
+            age2 :age2,
+            gender2:gender2,
+            lass2:lass2,
+            fav2:fav2,
+            subjects2:subjects2
+             // pass the win value here
+        },
+        function(data) {
+            if(data.status == 1){
+                // success! Do something
+            }
+            else{
+                // error! Do something
+            }
+        });
+        document.write("Thank you");     
+    }
+      
 
 
     function checker(solution){
@@ -304,6 +370,6 @@
 </table>
 
 <button id="but" type="button" onclick="sendSolution();">Submit</button>
-<button id="qui" type="button" onclick="sendSolution();">Quit</button>
+<button id="qui" type="button" onclick="qut();">Quit</button>
 </body>
 </html>
