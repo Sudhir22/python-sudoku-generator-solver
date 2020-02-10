@@ -1,7 +1,18 @@
 <head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(function() {
+  $('#Button1').click(function() {
+    $("#Age2").prop('required', true);
+    $("#gender2").prop('required', true);
+    $("#fav2").prop('required', true);
+    $("#subjects2").prop('required', true);
+    $("#Class2").prop('required', true);
+  });
+});
 function storeValues()
 {
+  
   var gen = document.getElementsByName("gender");
     for(var i=0; i<gen.length;i++)
     {
@@ -12,9 +23,23 @@ function storeValues()
     }
  // sessionStorage.setItem("Gender",document.getElementsByName("gender")[0].value);
   sessionStorage.setItem("Age",document.getElementsByName("Age")[0].value);
+  sessionStorage.setItem("ID",document.getElementsByName("ID")[0].value);
   sessionStorage.setItem("Class",document.getElementsByName("Class")[0].value)
   sessionStorage.setItem("subjects",document.getElementsByName("subjects")[0].value)
   sessionStorage.setItem("fav",document.getElementsByName("fav")[0].value)
+
+  var gen2 = document.getElementsByName("gender2");
+    for(var i=0; i<gen2.length;i++)
+    {
+        if(gen2[i].checked)
+        {
+            sessionStorage.setItem("Gender2",gen[i].value);        
+        }
+    }
+  sessionStorage.setItem("Age2",document.getElementsByName("Age2")[0].value);
+  sessionStorage.setItem("Class2",document.getElementsByName("Class2")[0].value)
+  sessionStorage.setItem("subjects2",document.getElementsByName("subjects2")[0].value)
+  sessionStorage.setItem("fav2",document.getElementsByName("fav2")[0].value)
 
 }
 
@@ -22,19 +47,44 @@ function storeValues()
 </head>
 <body>
 <form action="/task/">
+  ID:<br>
+  <input type="text" name="ID" required><br>
     Gender: <br>
-    <input type="radio" name="gender" value="male"> Male<br>
-    <input type="radio" name="gender" value="female"> Female<br>
-    <input type="radio" name="gender" value="other"> Other <br>
+    <input type="radio" name="gender" value="male" required> Male<br>
+    <input type="radio" name="gender" value="female" required> Female<br>
+    <input type="radio" name="gender" value="other" required> Other <br>
     Age:<br>
-  <input type="text" name="Age"><br>
+  <input type="text" name="Age" required><br>
   Class:<br>
-  <input type="text" name="Class"><br>
+  <input type="text" name="Class" required><br>
   Subjects you study:<br>
-  <input type="text" name="subjects"><br>
+  <input type="text" name="subjects" required><br>
   And your favorite :<br>
-  <input type="text" name="fav"><br>
+  <input type="text" name="fav" required><br>
+  <br>
+  Playing with a friend?
+    <input id="Button1" type="button" value="Yes"  name="Button1" 
+        onclick="document.getElementById('Player2').style.display='inline';"/>
+        <br>
+        
+  <div id="Player2"style="display:none">
+    Friend's details
+    Gender: <br>
+    <input id ="gender2" type="radio" name="gender2" value="male" > Male<br>
+    <input id ="gender2" type="radio" name="gender2" value="female" > Female<br>
+    <input id ="gender2" type="radio" name="gender2" value="other" > Other <br>
+    Age:<br>
+  <input type="text" id="Age2" name="Age2" ><br>
+  Class:<br>
+  <input type="text" id="Class2" name="Class2" ><br>
+  Subjects taken:<br>
+  <input type="text" id="subjects2" name="subjects2" ><br>
+  And favorite subject? :<br>
+  <input type="text" id="fav2" name="fav2" ><br>
+  <br>
 
+</div>
+<br>
   <input type="submit" value="Submit" onclick="storeValues();"><br>
 
   </form>

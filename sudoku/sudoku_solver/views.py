@@ -16,7 +16,7 @@ def index(request):
     result1.save()
     '''
 
-    results = run(n=79)       # find puzzles with as few givens as possible.
+    results = run(n=40)       # find puzzles with as few givens as possible.
     puzzle  = best(results)  # use the best one of those puzzles.
     template=loader.get_template("sudoku_solver/index.html")
     context={'cell1':puzzle[0][0],'cell2':puzzle[0][1],'cell3':puzzle[0][2],'cell4':puzzle[0][3],
@@ -219,17 +219,30 @@ def end_game(request):
     lass=request.POST.get('lass',False)
     subjects=request.POST.get('subjects',False)
     fav=request.POST.get('fav',False)
+    ID=request.POST.get('ID',False)
+    task_selected=request.POST.get('task_selected',False)
+    age2=request.POST.get('age2',False)
+    gender2=request.POST.get('gender2',False)
+    lass2=request.POST.get('lass2',False)
+    subjects2=request.POST.get('subjects2',False)
+    fav2=request.POST.get('fav2',False)
     task1_selection=request.POST.get('task1_selection',False)
     task2_selection=request.POST.get('task2_selection',False)
     task2_colour=request.POST.get('task2_colour',False)
     resuk=Results()
-    resuk.task_selected='Sudoku'
+    resuk.task_selected=task_selected
     resuk.time_taken=hours
+    resuk.token=ID
     resuk.age=age
     resuk.gender=gender
     resuk.standard=lass
     resuk.subjects=subjects
     resuk.favorite=fav
+    resuk.age_2=age2
+    resuk.gender_2=gender2
+    resuk.standard_2=lass2
+    resuk.subjects_2=subjects2
+    resuk.favorite_2=fav2
     resuk.task_outcome=resu
     resuk.task1_selection=task1_selection
     resuk.task2_selection=task2_selection

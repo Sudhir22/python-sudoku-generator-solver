@@ -65,7 +65,7 @@ function storeValues()
     <td>1</td>
     <td>1/10 chance of 200 tokens <br> 9/10 chances of 160 tokens</td>
     <td>1/10 chance of 385 tokens <br> 9/10 chances of 10 tokens</td>
-    <td><input type="radio" name="switch" value="1"></td>
+    <td><input type="radio" name="switch" value="1" required></td>
 </tr>
 <tr>
     <td>2</td>
@@ -125,6 +125,11 @@ function storeValues()
 <input type="submit" value="Submit" id="but" onclick="storeValues();">
 <br><br><br><br><br>
 <h4 id="but">Instructions</h4>
-<p>The Decision Sheet above contains 10 separate Decisions numbering 1 through 10.  Each of these Decisions is a choice between “Option A” and “Option B”. One of these decisions will be randomly selected to determine your earnings. A ten-sided die will be used to determine the payoffs.  After you have made your choice, this die will be rolled twice: once to select one of the 10 Decisions to be used, and then again to determine your payoff for the Option associated with that decision, either A or B, given your choice at that decision. To choose an Option for each decision, you will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from Option A to Option B, and will signify whether Option A or Option B is used to determine your earnings for each of the 10 decisions. For each decision before your choice, Option A will be used for payment.  For each decision afteryour choice, including the decision where the choice was made, Option B will be used. For example, if the die roll outcome is 6, Decision No. 6 will determine payment.  1.If your “Switch” number is afterDecision No. 6, then Option A will be used to determine your payoff.  You will have a 6/10 chance of earning 200 tokens, and a 4/10 chance of earning 160 tokens.2.If your “Switch” number is before or at Decision No. 6, then Option B will be used to determine your payoff.  You will have a 6/10 chance of earning 385 tokens, and a 4/10 chance of earning 10 tokens.Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, Option A will be used.  If that decision came after or at your choice, Option B will be used</p>
+<p>The Decision Sheet above contains 10 separate Decisions numbering 1 through 10.  Each of these Decisions is a choice between “Option A” and “Option B”. One of these decisions will be randomly selected to determine your earnings. A ten-sided die will be used to determine the payoffs.  After you have made your choice, this die will be rolled twice: once to select one of the 10 Decisions to be used, and then again to determine your payoff for the Option associated with that decision, either A or B, given your choice at that decision.</p>
+<p> To choose an Option for each decision, you will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from Option A to Option B, and will signify whether Option A or Option B is used to determine your earnings for each of the 10 decisions. For each decision before your choice, Option A will be used for payment.  For each decision afteryour choice, including the decision where the choice was made, Option B will be used.</p>
+<p> For example, if the die roll outcome is 6, Decision No. 6 will determine payment. </p>
+<p>1.If your “Switch” number is afterDecision No. 6, then Option A will be used to determine your payoff.  You will have a 6/10 chance of earning 200 tokens, and a 4/10 chance of earning 160 tokens.</p>
+    <p>2.If your “Switch” number is before or at Decision No. 6, then Option B will be used to determine your payoff.  You will have a 6/10 chance of earning 385 tokens, and a 4/10 chance of earning 10 tokens.</p>
+    <p>Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, Option A will be used.  If that decision came after or at your choice, Option B will be used</p>
 </form>
 </body>

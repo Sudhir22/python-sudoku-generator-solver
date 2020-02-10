@@ -1,7 +1,8 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/task_style.css' %}">
-    <script type="text/javascript">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script>
     /*function calculateWinnings()
     {
         var selection = document.getElementsByName("switch").value;
@@ -36,6 +37,54 @@
         }
         return number_of_tokens;
     }*/
+    function pushValues(){
+        storeValues();
+        var age = sessionStorage.getItem("Age");
+        var gender = sessionStorage.getItem("Gender");
+        var lass = sessionStorage.getItem("Class");
+        var task1_selection = sessionStorage.getItem("Task1");
+        var task2_selection = sessionStorage.getItem("Task2");
+        var task2_colour = sessionStorage.getItem("Task2Colour");
+        var subjects = sessionStorage.getItem("subjects");
+        var fav = sessionStorage.getItem("fav");
+        var ID = sessionStorage.getItem("ID");
+        var age2 = sessionStorage.getItem("Age2");
+        var gender2 = sessionStorage.getItem("Gender2");
+        var lass2 = sessionStorage.getItem("Class2");
+        var subjects2 = sessionStorage.getItem("subjects2");
+        var fav2 = sessionStorage.getItem("fav2");
+        //document.write("Submitted");
+        $.post( "{% url 'end-game' %}",
+        {
+            csrfmiddlewaretoken: '{{ csrf_token}}' ,
+            //solution : solution, //pass the score here
+            age :age,
+            gender:gender,
+            lass:lass,
+            task1_selection:task1_selection,
+            task2_selection:task2_selection,
+            task2_colour:task2_colour,
+            fav:fav,
+            subjects:subjects,
+            ID:ID,
+            task_selected:"App",
+            age2 :age2,
+            gender2:gender2,
+            lass2:lass2,
+            fav2:fav2,
+            subjects2:subjects2
+             // pass the win value here
+        },
+        function(data) {
+            if(data.status == 1){
+                // success! Do something
+            }
+            else{
+                // error! Do something
+            }
+        });
+        //window.location.href="http://creator-innovation.appspot.com/login";
+    }
     function storeValues()
     {
     var switches = document.getElementsByName("switch");
@@ -61,9 +110,9 @@
     </head>
     <body>
     <h1 id="but">Task 2</h1>    
-    <form action="/sudoku_solver/">
-    <p>My success colour is <input type="radio" name="colour" value="Red">Red</input>&nbsp;&nbsp;
-        <input type="radio" name="colour" value="Black">Black</input></p>
+    <form>
+    <p>My success colour is <input type="radio" name="colour" value="Red" required/>Red&nbsp;&nbsp;
+        <input type="radio" name="colour" value="Black" required/>Black</p>
     <table id="task1">
     <tr>
         <th>No.</th>
@@ -75,7 +124,7 @@
         <td>1</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>164 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="1"></td>
+        <td><input type="radio" name="switch" value="1" required/></td>
     </tr>
     <tr>
         <td>2</td>
@@ -194,9 +243,19 @@
     
 
     </table>
-    <input type="submit" value="Submit" id="but" onclick="storeValues();">
+    
     <br><br><br><br><br>
     <h4 id="but">Instructions</h4>
-    <p>The Decision Sheet contains 18 separate Decisions numbering 1 through 18.  Each of these Decisions is a choice between drawing a ball from “Urn A” or “Urn B”. One of these decisions will be randomly selected, depending on a roll of three dice, to determine your earnings. You will select a color, Red or Black, and this will be your Success Color.  Once a decision is selected, your earnings will be determined by whether the ball drawn from the Urn matches your Success Color. You will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from drawing a ball out of Urn A to drawing out of Urn B. Making a choice to switch means that every decision before your choice, a ball will be drawn from Urn A.  For each decision after your choice, including the decision where the choice was made, a ball will be drawn from Urn B.  For example, if the dice roll outcome is 9, Decision No. 9 will determine payment.  3.If your “Switch” number is higher than 9, a ball will be drawn from Urn A, and if the color of the ball matches the chosen Success Color, then you will 200 tokens.  If it does not match, you will earn 0 tokens. 4.If your “Switch” number is 9 or lower, a ball will be drawn from Urn B, and if the color of the ball matches the chosen Success Color, then you will 228 tokens.  If it does not match, you will earn 0 tokens. Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, a ball will be drawn from Urn A.  If that decision came after or at your choice, a ball will be drawn from Urn B.In each of the 18 decisions, Urn A has 50 Red balls and 50 Black balls, and pays 200 tokens if the ball drawn from Urn A matches your Success Color, and 0 tokens if it does not match.  Since each color has a 1/2 chance of being drawn, this means that drawing from Urn A pays 200 tokens with a chance of 1/2, and pays 0 with a chance of 1/2.  Urn B, on the other hand, has an unknown number of Red and Black balls (with a total of 100 balls).  It pays a positive amount if the ball drawn from Urn B matches your Success Color, and 0 tokens if it does not match. Since the chance of each color being drawn is unknown, the chance of Urn B paying a positive number of tokens is unknown as well.  The only difference between the 18 options is the amount paid when a ball matching your Success Color is drawn from Urn B.</p>
+    <p>The Decision Sheet contains 18 separate Decisions numbering 1 through 18.  Each of these Decisions is a choice between drawing a ball from “Urn A” or “Urn B”. One of these decisions will be randomly selected, depending on a roll of three dice, to determine your earnings. You will select a color, Red or Black, and this will be your Success Color.  Once a decision is selected, your earnings will be determined by whether the ball drawn from the Urn matches your Success Color.</p>
+    <p> You will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from drawing a ball out of Urn A to drawing out of Urn B. Making a choice to switch means that every decision before your choice, a ball will be drawn from Urn A.  For each decision after your choice, including the decision where the choice was made, a ball will be drawn from Urn B. </p>
+    <p> For example, if the dice roll outcome is 9, Decision No. 9 will determine payment.<br>  3.If your “Switch” number is higher than 9, a ball will be drawn from Urn A, and if the color of the ball matches the chosen Success Color, then you will 200 tokens.  If it does not match, you will earn 0 tokens.<br> 4.If your “Switch” number is 9 or lower, a ball will be drawn from Urn B, and if the color of the ball matches the chosen Success Color, then you will 228 tokens.  If it does not match, you will earn 0 tokens.</p>
+    <p> Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, a ball will be drawn from Urn A.  If that decision came after or at your choice, a ball will be drawn from Urn B.<br>In each of the 18 decisions, Urn A has 50 Red balls and 50 Black balls, and pays 200 tokens if the ball drawn from Urn A matches your Success Color, and 0 tokens if it does not match.  Since each color has a 1/2 chance of being drawn, this means that drawing from Urn A pays 200 tokens with a chance of 1/2, and pays 0 with a chance of 1/2.<br>  Urn B, on the other hand, has an unknown number of Red and Black balls (with a total of 100 balls).  It pays a positive amount if the ball drawn from Urn B matches your Success Color, and 0 tokens if it does not match. Since the chance of each color being drawn is unknown, the chance of Urn B paying a positive number of tokens is unknown as well.  The only difference between the 18 options is the amount paid when a ball matching your Success Color is drawn from Urn B.</p>
+    
+    <br>
+    <h3><center>Select one option:</center></h3>
+    
+    <input type="submit" formaction="/sudoku_solver/" value="Sudoku"  id="but" onclick="storeValues();"  />
+    <input type="submit" formaction="https://creator-innovation.appspot.com/login" value="Create App" onclick="pushValues()"/>
     </form>
+    
     </body>

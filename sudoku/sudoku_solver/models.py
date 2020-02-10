@@ -17,4 +17,9 @@ class Results(models.Model):
     task1_selection = models.IntegerField(null=True)
     task2_selection = models.IntegerField(null=True)
     task2_colour = models.CharField(max_length=10,null=True)
-
+    token = models.CharField(max_length=10,null=True)
+    age_2 = models.CharField(max_length=10,null=True)
+    gender_2 = models.CharField(max_length=10,null=True)
+    subjects_2 = models.CharField(max_length=10,null=True)
+    favorite_2 = models.CharField(max_length=10,null=True)
+    standard_2 = models.CharField(max_length=10,null=True)
