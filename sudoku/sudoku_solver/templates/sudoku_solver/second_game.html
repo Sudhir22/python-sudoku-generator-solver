@@ -53,6 +53,7 @@
         var lass2 = sessionStorage.getItem("Class2");
         var subjects2 = sessionStorage.getItem("subjects2");
         var fav2 = sessionStorage.getItem("fav2");
+        document.getElementById('hid').value=ID;
         //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
@@ -115,6 +116,7 @@
     <div class="container">
     <p>My success colour is <input type="radio" name="colour" value="Red" required/>Red&nbsp;&nbsp;
         <input type="radio" name="colour" value="Black" required/>Black</p>
+        <input type="hidden" id="hid" name="ID" required/>
     <table id="task1">
     <tr>
         <th>No.</th>
@@ -186,61 +188,61 @@
         <td>11</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>244 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="11"></td>
     </tr>
     <tr>
         <td>12</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>252 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="12"></td>
     </tr>
     <tr>
         <td>13</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>260 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="13"></td>
     </tr>
     <tr>
         <td>14</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>268 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="14"></td>
     </tr>
     <tr>
         <td>15</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>276 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="15"></td>
     </tr>
     <tr>
         <td>16</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>284 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="16"></td>
     </tr>
     <tr>
         <td>17</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>292 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="17"></td>
     </tr>
     <tr>
         <td>18</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>300 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="18"></td>
     </tr>
     <tr>
         <td>19</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>308 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="19"></td>
     </tr>
     <tr>
         <td>20</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>316 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="10"></td>
+        <td><input type="radio" name="switch" value="20"></td>
     </tr>
     
 
