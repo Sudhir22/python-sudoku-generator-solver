@@ -1,4 +1,85 @@
+<html>
 <head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/homepage_style.css' %}">
+<!--<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+input[type=button] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+
+</style>-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -45,48 +126,59 @@ function storeValues()
 
 </script>
 </head>
-<body>
+<body bgcolor="#a3e4d7">
+  <h1>Welcome. Please enter the following details before starting your game.</h1>
+<div class="container">
 <form action="/task/">
-  ID:<br>
-  <input type="text" name="ID" required><br>
-    Gender: <br>
-    <input type="radio" name="gender" value="male" required> Male<br>
-    <input type="radio" name="gender" value="female" required> Female<br>
-    <input type="radio" name="gender" value="other" required> Other <br>
-    Age:<br>
-  <input type="text" name="Age" required><br>
-  Class:<br>
-  <input type="text" name="Class" required><br>
-  Subjects you study:<br>
-  <input type="text" name="subjects" required><br>
-  And your favorite :<br>
-  <input type="text" name="fav" required><br>
-  <br>
-  Playing with a friend?
-    <input id="Button1" type="button" value="Yes"  name="Button1" 
-        onclick="document.getElementById('Player2').style.display='inline';"/>
-        <br>
-        
-  <div id="Player2"style="display:none">
-    Friend's details
-    Gender: <br>
-    <input id ="gender2" type="radio" name="gender2" value="male" > Male<br>
-    <input id ="gender2" type="radio" name="gender2" value="female" > Female<br>
-    <input id ="gender2" type="radio" name="gender2" value="other" > Other <br>
-    Age:<br>
-  <input type="text" id="Age2" name="Age2" ><br>
-  Class:<br>
-  <input type="text" id="Class2" name="Class2" ><br>
-  Subjects taken:<br>
-  <input type="text" id="subjects2" name="subjects2" ><br>
-  And favorite subject? :<br>
-  <input type="text" id="fav2" name="fav2" ><br>
-  <br>
-
+<div class="row">
+<div class="col-25">
+  <label>ID:</label>
 </div>
-<br>
+  <div class="col-75">
+    <input type="text" name="ID" placeholder="Please enter your id" required>
+  </div></div>
+    <div class="row"><div class="col-25">Gender: </div>
+    <div class="col-75"><input type="radio" name="gender" value="male" required> Male<br>
+    <input type="radio" name="gender" value="female" required> Female<br>
+    <input type="radio" name="gender" value="other" required> Other <br></div>
+    <div class="row">
+      <div class="col-25">Age:</div>
+  <div class="col-75"><input type="text" name="Age" required placeholder="Please enter your age"></div></div>
+  <div class="row">
+    <div class="col-25">Class:</div>
+  <div class="col-75"><input type="text" name="Class" required placeholder="Please enter the grade you are in"></div></div>
+  <div class="row">
+    <div class="col-25">Subjects you study:</div>
+    <div class="col-75"><input type="text" name="subjects" required placeholder="What subjects do you study?"></div></div>
+    <div class="row">
+      <div class="col-25"> And your favorite :</div>
+  <div class="col-75"><input type="text" name="fav" required placeholder="Which subjects do you like?"></div></div>
+  <br>
+  <div class="row"><div class="col-25">Playing with a friend?</div></div>
+  <input id="Button1" type="button" value="Yes"  name="Button1" 
+        onclick="document.getElementById('Player2').style.display='inline';"/>
+        
+      <br>  
+  <div id="Player2"style="display:none">
+    <div class="row"><div class="col-25"><b>Friend's details</b></div></div>
+    <div class="row"><div class="col-25">Gender:</div>
+    <div class="col-75"><input id ="gender2" type="radio" name="gender2" value="male" > Male<br>
+    <input id ="gender2" type="radio" name="gender2" value="female" > Female<br>
+    <input id ="gender2" type="radio" name="gender2" value="other" > Other </div></div>
+    <div class="row"><div class="col-25">Age:</div>
+  <div class="col-75"><input type="text" id="Age2" name="Age2" placeholder="Please enter your age"></div></div>
+  <div class="row"><div class="col-25">Class:</div>
+  <div class="col-75"><input type="text" id="Class2" name="Class2" placeholder="Which grade are you in?"></div></div>
+  <div class="row"><div class="col-25">Subjects taken:</div>
+  <div class="col-75"><input type="text" id="subjects2" name="subjects2" placeholder="What subjects do you study?"></div></div>
+  <div class="row"><div class="col-25">And favorite subject? :</div>
+  <div class="col-75"><input type="text" id="fav2" name="fav2" placeholder="Which ones are your favorite?"></div>
+  </div>
+  </div>
   <input type="submit" value="Submit" onclick="storeValues();"><br>
 
   </form>
+  </div>
 </body>
  
+</html>

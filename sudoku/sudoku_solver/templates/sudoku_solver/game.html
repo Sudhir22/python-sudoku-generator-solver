@@ -51,10 +51,11 @@ function storeValues()
 
 </script>
 </head>
-<body>
+<body bgcolor="#a3e4d7">
 <h1 id="but">Task 1</h1>
+<p><b>Please read the instructions below before attempting the task.</b></p>
 <form action="/second_task/">
-<table id="task1">
+<div class="container"><table id="task1">
 <tr>
     <th>No.</th>
     <th>Option A</th>
@@ -122,9 +123,9 @@ function storeValues()
     <td><input type="radio" name="switch" value="10"></td>
 </tr>
 </table>
-<input type="submit" value="Submit" id="but" onclick="storeValues();">
+<input type="submit" value="Next Task" id="but" onclick="storeValues();"></div>
 <br><br><br><br><br>
-<h4 id="but">Instructions</h4>
+<h3 id="but">Instructions</h3>
 <p>The Decision Sheet above contains 10 separate Decisions numbering 1 through 10.  Each of these Decisions is a choice between “Option A” and “Option B”. One of these decisions will be randomly selected to determine your earnings. A ten-sided die will be used to determine the payoffs.  After you have made your choice, this die will be rolled twice: once to select one of the 10 Decisions to be used, and then again to determine your payoff for the Option associated with that decision, either A or B, given your choice at that decision.</p>
 <p> To choose an Option for each decision, you will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from Option A to Option B, and will signify whether Option A or Option B is used to determine your earnings for each of the 10 decisions. For each decision before your choice, Option A will be used for payment.  For each decision afteryour choice, including the decision where the choice was made, Option B will be used.</p>
 <p> For example, if the die roll outcome is 6, Decision No. 6 will determine payment. </p>

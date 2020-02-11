@@ -163,20 +163,21 @@ else:
         }
     }
 '''
-DATABASES = {
-    'default': {         
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Project_Results',
-        'USER': 'root',
-        'PASSWORD': 'cloudadmin',
-       'PORT': '3306',
-    } 
-}
+    DATABASES = {
+        'default': {         
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'Project_Results',
+            'USER': 'root',
+            'PASSWORD': 'cloudadmin',
+        'PORT': '3306',
+        } 
+    }
 
 
 # In the flexible environment, you connect to CloudSQL using a unix socket.
 # Locally, you can use the CloudSQL proxy to proxy a localhost connection
 # to the instance
+
 DATABASES['default']['HOST'] = '/cloudsql/gender-innovation:australia-southeast1:gender-innovation'
 if os.getenv('GAE_INSTANCE'):
     pass
