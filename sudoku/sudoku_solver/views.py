@@ -45,6 +45,9 @@ def index(request):
 def homepage(request):
     return render(request,"sudoku_solver/homepage.html")
 
+def homepage_2(request):
+    return render(request,"sudoku_solver/homepage_2.html")
+
 def task(request):
     return render(request,"sudoku_solver/game.html")
 

@@ -112,6 +112,12 @@
     <body bgcolor="#a3e4d7">
     <h1 id="but">Task 2</h1>    
     <p><b>Please read the instructions below before attempting the task.</b></p>
+    <h3 id="but">Instructions</h3>
+    <p>The Decision Sheet contains 18 separate Decisions numbering 1 through 18.  Each of these Decisions is a choice between drawing a ball from “Urn A” or “Urn B”. One of these decisions will be randomly selected, depending on a roll of three dice, to determine your earnings. You will select a color, Red or Black, and this will be your Success Color.  Once a decision is selected, your earnings will be determined by whether the ball drawn from the Urn matches your Success Color.</p>
+    <p> You will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from drawing a ball out of Urn A to drawing out of Urn B. Making a choice to switch means that every decision before your choice, a ball will be drawn from Urn A.  For each decision after your choice, including the decision where the choice was made, a ball will be drawn from Urn B. </p>
+    <p> For example, if the dice roll outcome is 9, Decision No. 9 will determine payment.<br>  3.If your “Switch” number is higher than 9, a ball will be drawn from Urn A, and if the color of the ball matches the chosen Success Color, then you will 200 tokens.  If it does not match, you will earn 0 tokens.<br> 4.If your “Switch” number is 9 or lower, a ball will be drawn from Urn B, and if the color of the ball matches the chosen Success Color, then you will 228 tokens.  If it does not match, you will earn 0 tokens.</p>
+    <p> Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, a ball will be drawn from Urn A.  If that decision came after or at your choice, a ball will be drawn from Urn B.<br>In each of the 18 decisions, Urn A has 50 Red balls and 50 Black balls, and pays 200 tokens if the ball drawn from Urn A matches your Success Color, and 0 tokens if it does not match.  Since each color has a 1/2 chance of being drawn, this means that drawing from Urn A pays 200 tokens with a chance of 1/2, and pays 0 with a chance of 1/2.<br>  Urn B, on the other hand, has an unknown number of Red and Black balls (with a total of 100 balls).  It pays a positive amount if the ball drawn from Urn B matches your Success Color, and 0 tokens if it does not match. Since the chance of each color being drawn is unknown, the chance of Urn B paying a positive number of tokens is unknown as well.  The only difference between the 18 options is the amount paid when a ball matching your Success Color is drawn from Urn B.</p>
+    <br><br><br><br><br>
     <form>
     <div class="container">
     <p>My success colour is <input type="radio" name="colour" value="Red" required/>Red&nbsp;&nbsp;
@@ -242,19 +248,14 @@
         <td>20</td>
         <td>200 tokens if chosen colour <br> 0 tokens if not</td>
         <td>316 tokens if chosen colour <br> 0 tokens if not</td>
-        <td><input type="radio" name="switch" value="20"></td>
+        <td><input type="radio" name="switch" value="20N"></td>
     </tr>
     
 
     </table></div>
     
-    <br><br><br><br><br>
-    <h3 id="but">Instructions</h3>
-    <p>The Decision Sheet contains 18 separate Decisions numbering 1 through 18.  Each of these Decisions is a choice between drawing a ball from “Urn A” or “Urn B”. One of these decisions will be randomly selected, depending on a roll of three dice, to determine your earnings. You will select a color, Red or Black, and this will be your Success Color.  Once a decision is selected, your earnings will be determined by whether the ball drawn from the Urn matches your Success Color.</p>
-    <p> You will make one choice in the “Switch” column on the right.  This choice indicates that you would like to switch from drawing a ball out of Urn A to drawing out of Urn B. Making a choice to switch means that every decision before your choice, a ball will be drawn from Urn A.  For each decision after your choice, including the decision where the choice was made, a ball will be drawn from Urn B. </p>
-    <p> For example, if the dice roll outcome is 9, Decision No. 9 will determine payment.<br>  3.If your “Switch” number is higher than 9, a ball will be drawn from Urn A, and if the color of the ball matches the chosen Success Color, then you will 200 tokens.  If it does not match, you will earn 0 tokens.<br> 4.If your “Switch” number is 9 or lower, a ball will be drawn from Urn B, and if the color of the ball matches the chosen Success Color, then you will 228 tokens.  If it does not match, you will earn 0 tokens.</p>
-    <p> Namely, once we select a decision to determine your earnings, if that decision came before your choice to switch, a ball will be drawn from Urn A.  If that decision came after or at your choice, a ball will be drawn from Urn B.<br>In each of the 18 decisions, Urn A has 50 Red balls and 50 Black balls, and pays 200 tokens if the ball drawn from Urn A matches your Success Color, and 0 tokens if it does not match.  Since each color has a 1/2 chance of being drawn, this means that drawing from Urn A pays 200 tokens with a chance of 1/2, and pays 0 with a chance of 1/2.<br>  Urn B, on the other hand, has an unknown number of Red and Black balls (with a total of 100 balls).  It pays a positive amount if the ball drawn from Urn B matches your Success Color, and 0 tokens if it does not match. Since the chance of each color being drawn is unknown, the chance of Urn B paying a positive number of tokens is unknown as well.  The only difference between the 18 options is the amount paid when a ball matching your Success Color is drawn from Urn B.</p>
-    
+
+
     <br>
     <h3><center>Select one option:</center></h3>
     
