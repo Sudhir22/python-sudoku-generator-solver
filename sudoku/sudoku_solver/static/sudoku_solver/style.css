@@ -63,19 +63,21 @@ table {
     color: white;
     padding: 12px 20px;
     border: none;
+    margin-left: 500px;
     border-radius: 4px;
     cursor: pointer;
-    float: center;
+
   }
 
   #qui{
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
+    margin-left: 600px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: center;
+  
   }
 
   
