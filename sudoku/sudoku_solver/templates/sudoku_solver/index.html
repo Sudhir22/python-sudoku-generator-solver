@@ -95,6 +95,7 @@
         var task2_colour = sessionStorage.getItem("Task2Colour");
         var subjects = sessionStorage.getItem("subjects");
         var fav = sessionStorage.getItem("fav");
+        var hobb = sessionStorage.getItem("hobb");
 
         var ID = sessionStorage.getItem("ID");
         var age2 = sessionStorage.getItem("Age2");
@@ -102,6 +103,7 @@
         var lass2 = sessionStorage.getItem("Class2");
         var subjects2 = sessionStorage.getItem("subjects2");
         var fav2 = sessionStorage.getItem("fav2");
+        var hobb2 = sessionStorage.getItem("hobb2");
         //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
@@ -109,6 +111,7 @@
             //solution : solution, //pass the score here
             resu: resu,
             age :age,
+            hobb:hobb,
             gender:gender,
             lass:lass,
             hours: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))+'m '+Math.floor((timeDiff % (1000 * 60)) / 1000)+'s',
@@ -123,6 +126,7 @@
             gender2:gender2,
             lass2:lass2,
             fav2:fav2,
+            hobb2:hobb2,
             subjects2:subjects2
              // pass the win value here
         },
@@ -253,7 +257,7 @@
 
 </script>
 </head>
-<body bgcolor="#a3e4d7" onload="GetCellValues();">
+<body onload="GetCellValues();">
 <p id="demo"></p>
 <table id="grid" border="1" style="border-collapse: collapse;">
     <tr class="row">

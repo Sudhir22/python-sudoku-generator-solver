@@ -2,86 +2,25 @@
 <head>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/homepage_style.css' %}">
-<!--<style>
-* {
-  box-sizing: border-box;
-}
+<link rel="stylesheet/less" type="text/css" href="{% static 'sudoku_solver/homepage.less' %}"/>
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-input[type=button] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: left;
-}
-
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-
-
-
-</style>-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+function lego () {
+  
+  var divTop = document.createElement("div");
+  var divBottom = document.createElement("div");
+  
+  divTop.setAttribute("class", "border-top");
+  divBottom.setAttribute("class", "border-bottom");
+  
+  document.body.appendChild(divTop);
+  document.body.appendChild(divBottom);
+  
+}
 
 function storeValues()
 {
@@ -100,15 +39,22 @@ function storeValues()
   sessionStorage.setItem("Class",document.getElementsByName("Class")[0].value)
   sessionStorage.setItem("subjects",document.getElementsByName("subjects")[0].value)
   sessionStorage.setItem("fav",document.getElementsByName("fav")[0].value)
+  sessionStorage.setItem("hobb",document.getElementsByName("hobb")[0].value)
 
 
 }
 
 </script>
 </head>
-<body bgcolor="#a3e4d7">
-  <h1>Welcome. Please enter the following details before starting your game.</h1>
+<body onload="lego();">
+  <div class="fixed">
+  <img src="https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif" alt="HTML5 Icon" width="250" height="250"></div>
+  <!--div class="new">
+    <img src="https://lh3.googleusercontent.com/proxy/ijxUT2UWzHh0jty5sLfcBC6KyXpDdKm1FIqWAwDMmqgu_ZL8mvfKeONcJH_cXLfpA-1m3XKTQEu6VDqBh4I_MRq4RTQzLGY" alt="HTML5 Icon" width="250" height="250"> 
+  </div-->
 <div class="container">
+
+  <h1>Welcome. Please enter the following details before.</h1>
 <form action="/task/">
 <div class="row">
 <div class="col-25">
@@ -122,17 +68,20 @@ function storeValues()
     <input type="radio" name="gender" value="female" required> Female<br>
     <input type="radio" name="gender" value="other" required> Other <br></div></div>
     <div class="row">
-      <div class="col-25">What is your Age?:</div>
+      <div class="col-25">What is your Age?</div>
   <div class="col-75"><input type="number" name="Age" required placeholder="Please enter your age"></div></div>
   <div class="row">
-    <div class="col-25">Which standard you studying in?:</div>
+    <div class="col-25">Which standard you studying in?</div>
   <div class="col-75"><input type="text" name="Class" required placeholder="Please enter the standard you are in"></div></div>
   <div class="row">
-    <div class="col-25">What subjects do you study?:</div>
+    <div class="col-25">What subjects do you study?</div>
     <div class="col-75"><input type="text" name="subjects" required placeholder="Please enter subjects spereated by comma(,)"></div></div>
-    <div class="row">
-      <div class="col-25"> What is your favorite ?:</div>
+  <div class="row">
+    <div class="col-25"> What is your favorite ?</div>
   <div class="col-75"><input type="text" name="fav" required placeholder="Which subject do you like?"></div></div>
+  <div class="row">
+    <div class="col-25"> What are your hobbies ?</div>
+  <div class="col-75"><input type="text" name="hobb" required placeholder="Please list your hobbies"></div></div>
   <br>
   
    
@@ -142,6 +91,8 @@ function storeValues()
 
   </form>
   </div>
+
+
 </body>
  
 </html>

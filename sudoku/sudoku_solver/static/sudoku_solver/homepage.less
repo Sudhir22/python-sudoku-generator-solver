@@ -1,0 +1,101 @@
+
+@bg-tl: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/319423/lego-bg-tl.png";
+@bg-tr: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/319423/lego-bg-tr.png";
+@bg-bl: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/319423/lego-bg-bl.png";
+@bg-br: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/319423/lego-bg-br.png";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  height: 100%;
+  font-family: Roboto, arial, sans-serif;
+  font-size: 1em;
+  //display: flex;
+  //flex-flow: row wrap;
+  //justify-content: center;
+  //align-items: center;
+  //text-align: center;
+
+  > :first-child {
+    position: absolute;
+    padding: 1em;
+    //left: 18%;
+    //right: 18%;
+   // top: 33%;
+    //bottom: 33%;
+    //display: flex;
+   /// display: flex;
+    //display: flex;
+    //flex-flow: row wrap;
+    //justify-content: center;
+   // align-items: center;
+  }
+}
+
+.large-text,
+[lego-ipsum="phrase"],
+[lego-ipsum="sentence"] {
+  font-size: 1.5em;
+}
+
+img.minifig {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.border-top,
+.border-bottom {
+  position: absolute;
+  max-height: 50%;
+  height: 50%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  &:before,
+  &:after {
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    content: " ";
+  }
+
+  &.border-top {
+    top: 0;
+
+    &:before {
+      background-image: url(@bg-tl);
+      background-position: 0 0;
+      top: 0;
+      left: 0;
+    }
+
+    &:after {
+      background-image: url(@bg-tr);
+      background-position: 100% 0;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &.border-bottom {
+    bottom: 0;
+
+    &:before {
+      background-image: url(@bg-bl);
+      background-position: 0 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    &:after {
+      background-image: url(@bg-br);
+      background-position: 100% 100%;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

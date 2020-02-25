@@ -22,7 +22,19 @@
 }
 
 
+.fixed {
+  position: fixed;
+  top: 10%;
+  right: 1%;
 
+}
+body {
+  background-image: url("https://i.dlpng.com/static/png/1182496-maths-borders-with-numbers-png-1024_600_preview.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /*transform: rotate(90deg);*/
+}
 .cell input {
     display: inline-block;
     float: left;

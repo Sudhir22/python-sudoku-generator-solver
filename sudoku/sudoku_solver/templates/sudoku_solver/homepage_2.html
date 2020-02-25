@@ -1,7 +1,10 @@
 <html>
 <head>
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/homepage_style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/homepage_style_2.css' %}">
+<link rel="stylesheet/less" type="text/css" href="{% static 'sudoku_solver/homepage_2.less' %}"/>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 <!--<style>
 * {
   box-sizing: border-box;
@@ -82,7 +85,18 @@ input[type=submit]:hover {
 </style>-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-
+function lego () {
+  
+  var divTop = document.createElement("div");
+  var divBottom = document.createElement("div");
+  
+  divTop.setAttribute("class", "border-top");
+  divBottom.setAttribute("class", "border-bottom");
+  
+  document.body.appendChild(divTop);
+  document.body.appendChild(divBottom);
+  
+}
 function storeValues()
 {
   
@@ -100,6 +114,7 @@ function storeValues()
   sessionStorage.setItem("Class",document.getElementsByName("Class")[0].value)
   sessionStorage.setItem("subjects",document.getElementsByName("subjects")[0].value)
   sessionStorage.setItem("fav",document.getElementsByName("fav")[0].value)
+  sessionStorage.setItem("hobb",document.getElementsByName("hobb")[0].value)
 
   var gen2 = document.getElementsByName("gender2");
     for(var i=0; i<gen2.length;i++)
@@ -113,14 +128,17 @@ function storeValues()
   sessionStorage.setItem("Class2",document.getElementsByName("Class2")[0].value)
   sessionStorage.setItem("subjects2",document.getElementsByName("subjects2")[0].value)
   sessionStorage.setItem("fav2",document.getElementsByName("fav2")[0].value)
+  sessionStorage.setItem("hobb2",document.getElementsByName("hobb2")[0].value)
 
 }
 
 </script>
 </head>
-<body bgcolor="#a3e4d7">
-  <h1>Welcome. Please enter the following details before starting your game.</h1>
+<body onload="lego();">
+  <div class="fixed">
+    <img src="https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif" alt="HTML5 Icon" width="200" height="200"></div> 
 <div class="container">
+  <h1>Welcome. Please enter the following details before starting.</h1>
 <form action="/task/">
 <div class="row">
 <div class="col-25">
@@ -134,17 +152,20 @@ function storeValues()
     <input type="radio" name="gender" value="female" required> Female<br>
     <input type="radio" name="gender" value="other" required> Other <br></div></div>
     <div class="row">
-      <div class="col-25">What is your Age?:</div>
+      <div class="col-25">What is your Age?</div>
   <div class="col-75"><input type="number" name="Age" required placeholder="Please enter your age"></div></div>
   <div class="row">
-    <div class="col-25">Which standard you studying in?:</div>
+    <div class="col-25">Which standard you studying in?</div>
   <div class="col-75"><input type="text" name="Class" required placeholder="Please enter the standard you are in"></div></div>
   <div class="row">
-    <div class="col-25">What subjects do you study?:</div>
+    <div class="col-25">What subjects do you study?</div>
     <div class="col-75"><input type="text" name="subjects" required placeholder="Please enter subjects spereated by comma(,)"></div></div>
     <div class="row">
-      <div class="col-25"> What is your favorite ?:</div>
+      <div class="col-25"> What is your favorite ?</div>
   <div class="col-75"><input type="text" name="fav" required placeholder="Which subject do you like?"></div></div>
+  <div class="row">
+    <div class="col-25"> What are your hobbies ?</div>
+  <div class="col-75"><input type="text" name="hobb" required placeholder="Please list your hobbies"></div></div>
   <br>
   
    
@@ -155,19 +176,24 @@ function storeValues()
     <div class="col-75"><input id ="gender2" type="radio" name="gender2" value="male" > Male<br>
     <input id ="gender2" type="radio" name="gender2" value="female" > Female<br>
     <input id ="gender2" type="radio" name="gender2" value="other" > Other </div></div>
-    <div class="row"><div class="col-25">What is your Age?:</div>
+    <div class="row"><div class="col-25">What is your Age?</div>
   <div class="col-75"><input type="number" id="Age2" name="Age2" placeholder="Please enter your age"></div></div>
-  <div class="row"><div class="col-25">Which standard you studying in?:</div>
+  <div class="row"><div class="col-25">Which standard you studying in?</div>
   <div class="col-75"><input type="text" id="Class2" name="Class2" placeholder="Which standard are you in?"></div></div>
-  <div class="row"><div class="col-25">What subjects do you study?:</div>
+  <div class="row"><div class="col-25">What subjects do you study?</div>
   <div class="col-75"><input type="text" id="subjects2" name="subjects2" placeholder="Please enter subjects spereated by comma(,)"></div></div>
-  <div class="row"><div class="col-25">What is your favorite ? :</div>
+  <div class="row"><div class="col-25">What is your favorite ?</div>
   <div class="col-75"><input type="text" id="fav2" name="fav2" placeholder="Which subject do you like?"></div></div>
+  <div class="row">
+    <div class="col-25"> What are your hobbies ?</div>
+  <div class="col-75"><input type="text" name="hobb2" required placeholder="Please list your hobbies"></div></div>
   </div>
   <input type="submit" value="Submit" onclick="storeValues();"><br>
 
   </form>
   </div>
+  
+</div> 
 </body>
  
 </html>

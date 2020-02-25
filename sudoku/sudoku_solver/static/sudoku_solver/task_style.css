@@ -8,7 +8,13 @@ table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
-
+/*
+body {
+  background-image: url("https://lh3.googleusercontent.com/proxy/LNEG16Kpu3sVli4o_FxCSS82T1mVxUUN6IPp9fp4UFVKt3MaLrQW_FJbaBsqZzW-H2R2zHvr7tlNqScGU7FI0ouf");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}*/
 table tr:nth-child(even){background-color: #f2f2f2;}
 
 table tr:hover {background-color: #ddd;}
@@ -20,7 +26,39 @@ table th {
   background-color: #4CAF50;
   color: white;
 }
+.fixed {
+  position: relative;
+  text-align: center;
+  color: white;
+  right: 5%;
+  top: 5%;
 
+}
+.tom {
+  position: absolute;
+  right: 5%;
+  top: 25%;
+  z-index: -1;
+
+}
+.rotate90 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+p{
+  font-family:  Helvetica;
+  font-size: 18px;
+  font-weight: bold;
+}
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -29,11 +67,7 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
     float: center;
-  } 
-
-p {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
+  }  
   
 .container {
     border-radius: 5px;
