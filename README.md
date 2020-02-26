@@ -6,5 +6,5 @@ Python based sudoku generator that can create unique random Sudoku board based o
 
 #### Suodku App Usage
 
-This API requires Django installation alongwith Sqlite3 database. 
+This Web Service requires Django installation alongwith Sqlite3 database.
 
