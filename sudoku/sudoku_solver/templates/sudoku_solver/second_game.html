@@ -56,6 +56,21 @@
         var subjects2 = sessionStorage.getItem("subjects2");
         var fav2 = sessionStorage.getItem("fav2");
         document.getElementById('hid').value=ID;
+        document.getElementById('hage').value=age;
+        document.getElementById('hhobb').value=hobb;
+        document.getElementById('hhobb2').value=hobb2;
+        document.getElementById('hage2').value=age2;
+        document.getElementById('hgender').value=gender;
+        document.getElementById('hgender2').value=gender2;
+        document.getElementById('hlass').value=lass;
+        document.getElementById('hlass2').value=lass2;
+        document.getElementById('hsubjects').value=subjects;
+        document.getElementById('hsubjects2').value=subjects2;
+        document.getElementById('hfav').value=fav;
+        document.getElementById('hfav2').value=fav2;
+        document.getElementById('htask1').value=task1_selection;
+        document.getElementById('htask2').value=task2_selection;
+        document.getElementById('hcolor').value=task2_colour;
         //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
@@ -132,6 +147,21 @@
     <p>My success colour is <input type="radio" name="colour" value="Red" required/>Red&nbsp;&nbsp;
         <input type="radio" name="colour" value="Black" required/>Black</p>
         <input type="hidden" id="hid" name="ID" required/>
+        <input type="hidden" id="hage" name="Age" required/>
+        <input type="hidden" id="hage2" name="Age2" required/>
+        <input type="hidden" id="hlass" name="Class" required/>
+        <input type="hidden" id="hlass2" name="Class2" required/>
+        <input type="hidden" id="hgender" name="Gender" required/>
+        <input type="hidden" id="hgender2" name="Gender2" required/>
+        <input type="hidden" id="hsubjects" name="subjects" required/>
+        <input type="hidden" id="hsubjects2" name="subjects2" required/>
+        <input type="hidden" id="hfav" name="fav" required/>
+        <input type="hidden" id="hfav2" name="fav2" required/>
+        <input type="hidden" id="hhobb" name="hobby" required/>
+        <input type="hidden" id="hhobb2" name="hobby2" required/>
+        <input type="hidden" id="htask1" name="task1_selection" required/>
+        <input type="hidden" id="htask2" name="task2_selection" required/>
+        <input type="hidden" id="hcolor" name="task2_colour" required/>
     <table id="task1">
     <tr>
         <th>No.</th>
