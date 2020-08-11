@@ -40,6 +40,7 @@ function storeValues()
   sessionStorage.setItem("subjects",document.getElementsByName("subjects")[0].value)
   sessionStorage.setItem("fav",document.getElementsByName("fav")[0].value)
   sessionStorage.setItem("hobb",document.getElementsByName("hobb")[0].value)
+  sessionStorage.setItem("ID2", document.getElementsByName("ID2")[0].value);
 
 
 }
@@ -83,6 +84,16 @@ function storeValues()
     <div class="col-25"> What are your hobbies ?</div>
   <div class="col-75"><input type="text" name="hobb" required placeholder="Please list your hobbies"></div></div>
   <br>
+  <h6>Please enter the following details if you are playing with a partner.</61>
+  <br>  
+    <div class="row"><div class="col-25"><b>Player 2 details:</b></div></div>
+    <div class="row">
+<div class="col-25">
+  <label>ID:</label>
+</div>
+  <div class="col-75">
+    <input type="number" name="ID2" placeholder="Please enter your partner id">
+  </div></div>
   
    
 

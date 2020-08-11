@@ -18,6 +18,7 @@ class Results(models.Model):
     task2_selection = models.IntegerField(null=True)
     task2_colour = models.CharField(max_length=10,null=True)
     token = models.CharField(max_length=10,null=True)
+    p_ID = models.CharField(max_length=10,null=True)
     hobb = models.CharField(max_length=20,null=True)
     '''
     age_2 = models.CharField(max_length=10,null=True)

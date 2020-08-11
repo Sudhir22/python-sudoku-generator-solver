@@ -223,6 +223,7 @@ def end_game(request):
     subjects=request.POST.get('subjects',False)
     fav=request.POST.get('fav',False)
     ID=request.POST.get('ID',False)
+    ID2=request.POST.get('ID2',False)
     task_selected=request.POST.get('task_selected',False)
     task1_selection=request.POST.get('task1_selection',False)
     task2_selection=request.POST.get('task2_selection',False)
@@ -242,6 +243,7 @@ def end_game(request):
     resuk.task_selected=task_selected
     resuk.time_taken=hours
     resuk.token=ID
+    resuk.p_ID=ID2
     resuk.age=age
     resuk.gender=gender
     resuk.standard=lass
