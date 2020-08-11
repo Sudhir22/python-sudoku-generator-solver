@@ -149,14 +149,14 @@ else:
     # Running locally so connect to either a local MySQL instance or connect to
     # Cloud SQL via the proxy. To start the proxy via command line:
     #
-    #     $ cloud_sql_proxy -instances=gender-innovation:australia-southeast1:gender-innovation=tcp:3306
+    #     $ cloud_sql_proxy -instances=gender-innovation:australia-southeast1:gender-innovation=tcp:3307
     #
     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '127.0.0.1',
-            'PORT': '3306',
+            'PORT': '3307',
             'NAME': 'Project_Results',
             'USER': 'root',
             'PASSWORD': 'cloudadmin',

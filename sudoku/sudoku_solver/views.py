@@ -224,14 +224,20 @@ def end_game(request):
     fav=request.POST.get('fav',False)
     ID=request.POST.get('ID',False)
     task_selected=request.POST.get('task_selected',False)
+    task1_selection=request.POST.get('task1_selection',False)
+    task2_selection=request.POST.get('task2_selection',False)
+    task2_colour=request.POST.get('task2_colour',False)
+    '''
+    Not required now since separate systems
+
     age2=request.POST.get('age2',False)
     gender2=request.POST.get('gender2',False)
     lass2=request.POST.get('lass2',False)
     subjects2=request.POST.get('subjects2',False)
     fav2=request.POST.get('fav2',False)
-    task1_selection=request.POST.get('task1_selection',False)
-    task2_selection=request.POST.get('task2_selection',False)
-    task2_colour=request.POST.get('task2_colour',False)
+    '''
+
+    
     resuk=Results()
     resuk.task_selected=task_selected
     resuk.time_taken=hours
@@ -241,15 +247,20 @@ def end_game(request):
     resuk.standard=lass
     resuk.subjects=subjects
     resuk.favorite=fav
+    resuk.task_outcome=resu
+    resuk.task1_selection=task1_selection
+    resuk.task2_selection=task2_selection
+    resuk.task2_colour=task2_colour
+    
+    '''
+            Not required now since separate systems
+
     resuk.age_2=age2
     resuk.gender_2=gender2
     resuk.standard_2=lass2
     resuk.subjects_2=subjects2
     resuk.favorite_2=fav2
-    resuk.task_outcome=resu
-    resuk.task1_selection=task1_selection
-    resuk.task2_selection=task2_selection
-    resuk.task2_colour=task2_colour
+    '''
     resuk.save()
     # You may want to validate data here
 

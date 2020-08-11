@@ -58,19 +58,23 @@
         document.getElementById('hid').value=ID;
         document.getElementById('hage').value=age;
         document.getElementById('hhobb').value=hobb;
-        document.getElementById('hhobb2').value=hobb2;
-        document.getElementById('hage2').value=age2;
         document.getElementById('hgender').value=gender;
-        document.getElementById('hgender2').value=gender2;
         document.getElementById('hlass').value=lass;
-        document.getElementById('hlass2').value=lass2;
         document.getElementById('hsubjects').value=subjects;
-        document.getElementById('hsubjects2').value=subjects2;
         document.getElementById('hfav').value=fav;
-        document.getElementById('hfav2').value=fav2;
         document.getElementById('htask1').value=task1_selection;
         document.getElementById('htask2').value=task2_selection;
         document.getElementById('hcolor').value=task2_colour;
+        /*
+        Not required now since separate systems
+
+        document.getElementById('hhobb2').value=hobb2;
+        document.getElementById('hage2').value=age2;
+        document.getElementById('hgender2').value=gender2;
+        document.getElementById('hlass2').value=lass2;
+        document.getElementById('hsubjects2').value=subjects2;
+        document.getElementById('hfav2').value=fav2;
+        */
         //document.write("Submitted");
         $.post( "{% url 'end-game' %}",
         {
@@ -78,7 +82,6 @@
             //solution : solution, //pass the score here
             age :age,
             hobb:hobb,
-            hobb2:hobb2,
             gender:gender,
             lass:lass,
             task1_selection:task1_selection,
@@ -88,11 +91,15 @@
             subjects:subjects,
             ID:ID,
             task_selected:"App",
+            /*
+                    Not required now since separate systems
             age2 :age2,
             gender2:gender2,
+            hobb2:hobb2,
             lass2:lass2,
             fav2:fav2,
             subjects2:subjects2
+            */
              // pass the win value here
         },
         function(data) {
@@ -299,7 +306,7 @@
     <h3><center>Select one option:</center></h3>
     
     <input type="submit" formaction="/sudoku_solver/" value="Sudoku"  id="but" onclick="storeValues();"  />
-    <input type="submit" formaction="https://creator-innovation.appspot.com/login" value="Create App" onclick="pushValues()"/>
+    <input type="submit" formaction="https://appcreator-dot-gender-innovation.appspot.com/login/" value="Create App" onclick="pushValues()"/>
     </form>
 
     </body>

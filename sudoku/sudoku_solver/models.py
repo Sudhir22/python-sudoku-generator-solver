@@ -18,10 +18,12 @@ class Results(models.Model):
     task2_selection = models.IntegerField(null=True)
     task2_colour = models.CharField(max_length=10,null=True)
     token = models.CharField(max_length=10,null=True)
+    hobb = models.CharField(max_length=20,null=True)
+    '''
     age_2 = models.CharField(max_length=10,null=True)
     gender_2 = models.CharField(max_length=10,null=True)
     subjects_2 = models.CharField(max_length=20,null=True)
     favorite_2 = models.CharField(max_length=10,null=True)
     standard_2 = models.CharField(max_length=10,null=True)
-    hobb = models.CharField(max_length=20,null=True)
     hobb_2 = models.CharField(max_length=20,null=True)
+    '''
