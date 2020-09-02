@@ -8,10 +8,8 @@
         h2,
         h3,
         h4 {
-          margin: 0;
-          border: 0;
-          padding: 0;
-          color: #575e75;
+          text-align: center;
+          color: #ffffff;
           font-weight: bold; 
           font-family: "Helvetica Neue", "Helvetica"}
             </style>
@@ -180,9 +178,10 @@
         document.write("Thank you");
     }
 </script>
-    <body style="background-image: url('/static/sudoku_solver/games.jpeg'); background-repeat: no-repeat;
+    <body style="background-image: url('/static/sudoku_solver/games.jpg'); background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;">
+    <form action="https://appcreator-dot-gender-innovation.appspot.com/login/">
         <input type="hidden" id="hid" name="ID" required/>
         <input type="hidden" id="hid2" name="ID2" required/>
         <input type="hidden" id="hage" name="Age" required/>
@@ -202,21 +201,21 @@
         <input type="hidden" id="hcolor" name="task2_colour" required/>
     <h1>MORE GAMES!</h1>
     <h2><centre> Choose a game Sudoku or Create an App</centre></h2>
-    <h3> Sudoku </h3>
-    <h4> Logic and math challenge!</h4>
-    <h4>Sudoku is played on a grid of 9 x 9 spaces. Within the rows and columns are 9 “squares” (made up of 3 x 3 spaces).
+    <h2><centre> Create an App</centre> </h2>
+    <h3>Create Stories, games and animation!</h3>
+    <h3> With App Creator, you can program your own interactive stories, games, and animations — and share your creations with others in the online community.
+    App Creator helps young people learn to think creatively, reason systematically, and work collaboratively — essential skills for life in the 21st century. </h3>
+    <input type="submit" value="Create App" id="but" onclick="pushValues();" />
+    <!--input type="submit" value="Move" id="qu" onclick="pushValues2();"  /-->
+    </form>
+    <h2> Sudoku </h3>
+    <h3> Logic and math challenge!</h3>
+    <h3>Sudoku is played on a grid of 9 x 9 spaces. Within the rows and columns are 9 “squares” (made up of 3 x 3 spaces).
         Each row, column and square (9 spaces each) needs to be filled out with the numbers 1-9, without repeating any numbers within the row, column or square. 
-        Each Sudoku grid comes with a few spaces already filled in</h4>
+        Each Sudoku grid comes with a few spaces already filled in</h3>
         <form action="/sudoku_solver/">
             <input type="submit" value="Sudoku" id="but" />
         </form>
-    <h3><centre> Create an App</centre> </h3>
-    <h4>Create Stories, games and animation!</h4>
-    <h4> With App Creator, you can program your own interactive stories, games, and animations — and share your creations with others in the online community.
-    App Creator helps young people learn to think creatively, reason systematically, and work collaboratively — essential skills for life in the 21st century. </h4>
-    <form action="https://appcreator-dot-gender-innovation.appspot.com/login/">
-    <input type="submit" value="Create App" id="but" />
-    <!--input type="submit" value="Move" id="qu" onclick="pushValues2();"  /-->
-    </form>
+
 </body>
 </html>

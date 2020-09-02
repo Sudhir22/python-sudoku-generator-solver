@@ -1,17 +1,29 @@
 <html>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/homepage_style.css' %}">
-    <body style="background-image: url('/static/sudoku_solver/clouds.jpeg'); background-repeat: no-repeat;
+    <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/task_style.css' %}">
+    <style type="text/css">
+        
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+          text-align: center;
+          color: #575e75;
+          font-weight: bold; 
+          font-family: "Helvetica Neue", "Helvetica"}
+            </style>
+    <body style="background-image: url('/static/sudoku_solver/numb.jpg'); background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;">
+        <form action="/task/">
     <h1><centre>GAMES!</centre></h1>
-    <h3><centre> In next two pages you will be playing decision based games where you can earn money. 
+    <h2><centre> In next two pages you will be playing decision based games where you can earn money. 
         It is as simple as selecting one option for the first task and selectiong a color and opne option from the given table for the 
         second task.
         Each task has its own instructions before you start.</centre>
-    </h3>
-    <form action="/task/">
-        <input type="submit" value="Next" />
+    </h2>
+        <input type="submit" value="Next" id="but" />
     </form>
 </body>
 </html>
