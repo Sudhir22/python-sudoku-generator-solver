@@ -1,0 +1,17 @@
+<html>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'sudoku_solver/homepage_style.css' %}">
+    <body style="background-image: url('/static/sudoku_solver/clouds.jpeg'); background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;">
+    <h1><centre>GAMES!</centre></h1>
+    <h3><centre> In next two pages you will be playing decision based games where you can earn money. 
+        It is as simple as selecting one option for the first task and selectiong a color and opne option from the given table for the 
+        second task.
+        Each task has its own instructions before you start.</centre>
+    </h3>
+    <form action="/task/">
+        <input type="submit" value="Next" />
+    </form>
+</body>
+</html>

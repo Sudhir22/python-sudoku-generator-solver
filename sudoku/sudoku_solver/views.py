@@ -51,6 +51,12 @@ def homepage_2(request):
 def task(request):
     return render(request,"sudoku_solver/game.html")
 
+def intro_task(request):
+    return render(request,"sudoku_solver/intro_task.html")
+
+def intro_game(request):
+    return render(request,"sudoku_solver/intro_game.html")
+
 def second_task(request):
     return render(request,"sudoku_solver/second_game.html")
 

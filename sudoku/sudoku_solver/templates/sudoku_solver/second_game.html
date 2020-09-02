@@ -37,86 +37,7 @@
         }
         return number_of_tokens;
     }*/
-    function pushValues(){
-        storeValues();
-        var age = sessionStorage.getItem("Age");
-        var hobb = sessionStorage.getItem("hobb");
-        var hobb2 = sessionStorage.getItem("hobb2");
-        var gender = sessionStorage.getItem("Gender");
-        var lass = sessionStorage.getItem("Class");
-        var task1_selection = sessionStorage.getItem("Task1");
-        var task2_selection = sessionStorage.getItem("Task2");
-        var task2_colour = sessionStorage.getItem("Task2Colour");
-        var subjects = sessionStorage.getItem("subjects");
-        var fav = sessionStorage.getItem("fav");
-        var ID = sessionStorage.getItem("ID");
-        var ID2 = sessionStorage.getItem("ID2");
-        /*
-        var age2 = sessionStorage.getItem("Age2");
-        var gender2 = sessionStorage.getItem("Gender2");
-        var lass2 = sessionStorage.getItem("Class2");
-        var subjects2 = sessionStorage.getItem("subjects2");
-        var fav2 = sessionStorage.getItem("fav2");*/
 
-        document.getElementById('hid').value=ID;
-        document.getElementById('hid2').value=ID2;
-        document.getElementById('hage').value=age;
-        document.getElementById('hhobb').value=hobb;
-        document.getElementById('hgender').value=gender;
-        document.getElementById('hlass').value=lass;
-        document.getElementById('hsubjects').value=subjects;
-        document.getElementById('hfav').value=fav;
-        document.getElementById('htask1').value=task1_selection;
-        document.getElementById('htask2').value=task2_selection;
-        document.getElementById('hcolor').value=task2_colour;
-        /*
-        Not required now since separate systems
-
-        document.getElementById('hhobb2').value=hobb2;
-        document.getElementById('hage2').value=age2;
-        document.getElementById('hgender2').value=gender2;
-        document.getElementById('hlass2').value=lass2;
-        document.getElementById('hsubjects2').value=subjects2;
-        document.getElementById('hfav2').value=fav2;
-        */
-        //document.write("Submitted");
-        $.post( "{% url 'end-game' %}",
-        {
-            csrfmiddlewaretoken: '{{ csrf_token}}' ,
-            //solution : solution, //pass the score here
-            age :age,
-            hobb:hobb,
-            gender:gender,
-            lass:lass,
-            task1_selection:task1_selection,
-            task2_selection:task2_selection,
-            task2_colour:task2_colour,
-            fav:fav,
-            subjects:subjects,
-            ID:ID,
-            ID2:ID2,
-            task_selected:"App",
-            /*
-                    Not required now since separate systems
-            age2 :age2,
-            gender2:gender2,
-            hobb2:hobb2,
-            lass2:lass2,
-            fav2:fav2,
-            subjects2:subjects2
-            */
-             // pass the win value here
-        },
-        function(data) {
-            if(data.status == 1){
-                // success! Do something
-            }
-            else{
-                // error! Do something
-            }
-        });
-        //window.location.href="http://creator-innovation.appspot.com/login";
-    }
     function storeValues()
     {
     var switches = document.getElementsByName("switch");
@@ -159,23 +80,23 @@
     <p>My success colour is <input type="radio" name="colour" value="Red" required/>Red&nbsp;&nbsp;
         <input type="radio" name="colour" value="Black" required/>Black</p>
         
-        <input type="hidden" id="hid" name="ID" required/>
+        <!--input type="hidden" id="hid" name="ID" required/>
         <input type="hidden" id="hid2" name="ID2" required/>
         <input type="hidden" id="hage" name="Age" required/>
-        <!--input type="hidden" id="hage2" name="Age2" required/-->
+        <input type="hidden" id="hage2" name="Age2" required/>
         <input type="hidden" id="hlass" name="Class" required/>
-        <!--input type="hidden" id="hlass2" name="Class2" required/-->
+        <input type="hidden" id="hlass2" name="Class2" required/>
         <input type="hidden" id="hgender" name="Gender" required/>
-        <!--input type="hidden" id="hgender2" name="Gender2" required/-->
+        <input type="hidden" id="hgender2" name="Gender2" required/>
         <input type="hidden" id="hsubjects" name="subjects" required/>
-        <!--input type="hidden" id="hsubjects2" name="subjects2" required/-->
+        <input type="hidden" id="hsubjects2" name="subjects2" required/>
         <input type="hidden" id="hfav" name="fav" required/>
-        <!--input type="hidden" id="hfav2" name="fav2" required/-->
+        <input type="hidden" id="hfav2" name="fav2" required/>
         <input type="hidden" id="hhobb" name="hobby" required/>
-        <!--input type="hidden" id="hhobb2" name="hobby2" required/-->
+        <input type="hidden" id="hhobb2" name="hobby2" required/>
         <input type="hidden" id="htask1" name="task1_selection" required/>
         <input type="hidden" id="htask2" name="task2_selection" required/>
-        <input type="hidden" id="hcolor" name="task2_colour" required/>
+        <input type="hidden" id="hcolor" name="task2_colour" required/ -->
         
     <table id="task1">
     <tr>
@@ -311,10 +232,10 @@
 
 
     <br>
-    <h3><center>Select one option:</center></h3>
-    
-    <input type="submit" formaction="/sudoku_solver/" value="Sudoku"  id="but" onclick="storeValues();"  />
-    <input type="submit" formaction="https://appcreator-dot-gender-innovation.appspot.com/login/" value="Create App" onclick="pushValues()"/>
+
+
+    <input type="submit" formaction="/intro_game/" value="Next"  id="but" onclick="storeValues();"  />
+    <!--input type="submit" formaction="https://appcreator-dot-gender-innovation.appspot.com/login/" value="Create App" onclick="pushValues()"/-->
     </form>
 
     </body>

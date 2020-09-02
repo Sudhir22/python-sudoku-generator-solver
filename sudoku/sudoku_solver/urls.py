@@ -8,9 +8,11 @@ urlpatterns=[
     path('sudoku_solver/',views.index,name='Index'),
     path('homepage/',views.homepage,name='homepage'),
     path('homepage_2/',views.homepage_2,name='homepage_2'),
+    path('intro_task/',views.intro_task,name='intro_task'),
     path('task/',views.task,name='task'),
     path('task_2/',views.task,name='task_2'),
     path('second_task/',views.second_task,name='second_task'),
     path('second_task_2/',views.second_task,name='second_task_2'),
+    path('intro_game/',views.intro_game,name='intro_game'),
     url(r'^end-game/?',views.end_game, name='end-game'),
 ] 
